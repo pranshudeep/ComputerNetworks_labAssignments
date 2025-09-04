@@ -1,0 +1,12 @@
+DNS Query results for example.com at 2025-09-04T19:41:45.582036 UTC
+A records:
+  23.220.75.245
+  23.220.75.232
+  23.192.228.80
+  23.215.0.136
+  23.215.0.138
+  23.192.228.84
+MX records:
+  0 .
+CNAME records:
+  (none)

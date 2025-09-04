@@ -1,0 +1,2 @@
+2025-09-05 00:15:46,339 INFO: GET https://httpbin.org/get -> 200
+2025-09-05 00:15:49,200 INFO: POST https://httpbin.org/post -> 200

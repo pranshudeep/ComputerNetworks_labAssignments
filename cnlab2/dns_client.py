@@ -72,4 +72,5 @@ print("\n" + out)
 with open("dns_results.txt", "w", encoding="utf-8") as f:
     f.write(out)
 logging.info("Wrote dns_results.txt for %s", domain)
-print("\n✅ Results saved to dns_results.txt and dns_client.log")
+
+print("\nResults saved to dns_results.txt and dns_client.log")

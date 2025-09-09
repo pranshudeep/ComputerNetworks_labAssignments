@@ -8,9 +8,9 @@ def run_ftp_demo():
 
     with FTP(server) as conn:
         conn.login(user=username, passwd=password)
-        print(f"✅ Connected to {server}")
+        print(f"Connected to {server}")
 
-        print("\n📂 Files on server:")
+        print("\nFiles on server:")
         conn.dir()
 
         data_file = Path("ftp_upload.txt")
@@ -18,11 +18,12 @@ def run_ftp_demo():
 
         with data_file.open("rb") as fh:
             conn.storbinary("STOR ftp_upload.txt", fh)
-        print("📤 Uploaded ftp_upload.txt")
+        print("Uploaded ftp_upload.txt")
 
         with open("ftp_download.txt", "wb") as out_fh:
             conn.retrbinary("RETR ftp_upload.txt", out_fh.write)
-        print("📥 Downloaded ftp_download.txt")
+        print("Downloaded ftp_download.txt")
 
 if __name__ == "__main__":
     run_ftp_demo()
+

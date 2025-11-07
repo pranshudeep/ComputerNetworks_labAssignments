@@ -1,27 +1,9 @@
-"""
-Part 2: Router Forwarding Table (Longest Prefix Match)
-This file simulates a router's forwarding logic using the
-Longest Prefix Match algorithm.
-"""
-
-# Import the helper functions from our first file
 from ip_utils import ip_to_binary, get_network_prefix
 
 class Router:
-    """
-    A class that simulates a router's forwarding table and
-    packet routing logic based on Longest Prefix Match.
-    """
     
     def __init__(self, routes: list):
-        """
-        Initializes the router with a list of routes.
-
-        Args:
-            routes: A list of tuples, where each tuple contains
-                    a CIDR prefix string and an output link string.
-                    e.g., [("223.1.1.0/24", "Link 0"), ...]
-        """
+        
         # This list will store our processed, optimized forwarding table
         # We will store tuples of: (binary_prefix, prefix_length, output_link)
         self.forwarding_table = []
@@ -30,10 +12,6 @@ class Router:
         self._build_forwarding_table(routes)
 
     def _build_forwarding_table(self, routes: list):
-        """
-        Processes the human-readable route list into an internal,
-        optimized format and sorts it for longest prefix matching.
-        """
         print("Building forwarding table...")
         for cidr, link in routes:
             # Convert the CIDR string (e.g., "223.1.1.0/24")
@@ -58,17 +36,6 @@ class Router:
             print(f'  Len: {length:<2} | Prefix: {prefix:<24} | Link: {link}')
 
     def route_packet(self, dest_ip: str) -> str:
-        """
-        Finds the correct output link for a destination IP using
-        the Longest Prefix Match algorithm.
-
-        Args:
-            dest_ip: The destination IP address string (e.g., "223.1.1.100").
-
-        Returns:
-            The string name of the output link (e.g., "Link 0") or
-            "Default Gateway" if no match is found.
-        """
         # (a) Convert the destination IP to its 32-bit binary representation
         binary_dest_ip = ip_to_binary(dest_ip)
         
@@ -123,4 +90,5 @@ if __name__ == "__main__":
     # Test 4
     ip4 = "198.51.100.1"
     link4 = my_router.route_packet(ip4)
+
     print(f'route_packet("{ip4}") -> "{link4}" (Expected: "Default Gateway")')

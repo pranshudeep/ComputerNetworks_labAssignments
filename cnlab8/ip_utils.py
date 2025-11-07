@@ -1,19 +1,5 @@
-"""
-Part 1: IP Address and Subnet Utilities
-This file contains helper functions to manipulate IP addresses, converting them
-from dotted-decimal notation to binary strings and extracting network prefixes.
-"""
-
 def ip_to_binary(ip_address: str) -> str:
-    """
-    Converts a standard dotted-decimal IP address string into a 32-bit binary string.
-
-    Args:
-        ip_address: A string in dotted-decimal format (e.g., "192.168.1.1").
-
-    Returns:
-        A 32-bit binary string, with each octet represented by 8 bits.
-    """
+    
     # Split the IP address into its four octets
     octets = ip_address.split('.')
     
@@ -36,15 +22,7 @@ def ip_to_binary(ip_address: str) -> str:
     return "".join(binary_octets)
 
 def get_network_prefix(ip_cidr: str) -> str:
-    """
-    Takes a CIDR notation string and returns the network prefix as a binary string.
-
-    Args:
-        ip_cidr: A string in CIDR notation (e.g., "200.23.16.0/23").
-
-    Returns:
-        The network prefix portion of the address as a binary string.
-    """
+    
     # Split the CIDR string into the IP address and the prefix length
     ip_address, prefix_len_str = ip_cidr.split('/')
     
@@ -82,4 +60,5 @@ if __name__ == "__main__":
     prefix = get_network_prefix(cidr)
     print(f'\nget_network_prefix("{cidr}"):')
     print(f'  Expected: 11001000000101110001000')
+
     print(f'  Actual:   {prefix}')
